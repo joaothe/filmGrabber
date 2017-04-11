@@ -11,7 +11,6 @@ request('http://www.imdb.com/chart/moviemeter', function(err, res, body){
 	$('.lister-list tr').each(function(){
 
 		//getting the informations that we want
-
 		var title = $(this).find('.titleColumn a').text().trim();
 		var rating = $(this).find('.imdRating strong').text().trim();
 

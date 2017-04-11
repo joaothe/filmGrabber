@@ -3,15 +3,14 @@ var cheerio = require('cheerio');
 var fs = require ('fs');
 
 request('http://www.imdb.com/chart/moviemeter', function(err, res, body){
-	// identificando erros
+	// identifying errors
 	if (err) console.log('Erro: ' +err);
 
-	//pegando body
 	var $ = cheerio.load(body);
 
 	$('.lister-list tr').each(function(){
 
-		//pegando as informacoes que interessam
+		//getting the informations that we want
 
 		var title = $(this).find('.titleColumn a').text().trim();
 		var rating = $(this).find('.imdRating strong').text().trim();

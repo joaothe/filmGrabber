@@ -3,6 +3,7 @@ var cheerio = require('cheerio');
 var fs = require ('fs');
 
 request('http://www.imdb.com/chart/moviemeter', function(err, res, body){
+
 	// identifying errors
 	if (err) console.log('Erro: ' +err);
 
@@ -14,7 +15,7 @@ request('http://www.imdb.com/chart/moviemeter', function(err, res, body){
 		var title = $(this).find('.titleColumn a').text().trim();
 		var rating = $(this).find('.imdRating strong').text().trim();
 
-		console.log('Titulo: ' +title);
+		console.log('Título: ' +title);
 
 		fs.appendFile('imdb.txt', title + ' ' + rating + '\n');
 		
